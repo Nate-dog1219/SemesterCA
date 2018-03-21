@@ -1,0 +1,24 @@
+
+@(form: play.data.Form[models.users.User], user: models.users.User)
+
+@main("Register user", user) {
+    @helper.form(action = routes.RegisterUser.registrationSubmit, 'class -> ""){
+        @helper.CSRF.formField
+        <div class="">
+            @helper.inputText(form("email"), '_label -> "Email", 'class -> "")
+        </div>
+        <div class="">
+            @helper.inputText(form("name"), '_label -> "Name", 'class -> "")
+        </div>
+        <div class="">
+            @helper.inputText(form("password"), '_label -> "Password", 'class -> "")
+        </div>
+        <div class="">
+            <label for="confirmPassword">Confirm password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" class="">
+        </div>
+        <div class="">
+            <input type="submit" class="btn btn-success" value="Register">
+        </div>
+    }
+}
